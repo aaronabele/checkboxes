@@ -9,10 +9,22 @@
   </head>
   <body>
     <main>
-      <input type="checkbox" id="fast" /><label for="fast">fast</label>
-      <input type="checkbox" id="cheap" /><label for="cheap">cheap</label>
-      <input type="checkbox" id="good" /><label for="good">good</label>
+      <div id="app">
+        <template v-for="checkbox in checkboxes">
+          <label class="text-3xl" for="checkbox.id">
+            {{ checkbox.value }}
+          </label>
+          <input
+            type="checkbox"
+            :value="checkbox.value"
+            :id="checkbox.id"
+            :checked="checkbox.done"
+            v-model="selectedCheckboxes"
+          />
+        </template>
+      </div>
     </main>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
